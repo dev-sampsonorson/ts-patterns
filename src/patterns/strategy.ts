@@ -1,3 +1,5 @@
+/*
+
 import { RecordHandler, loader } from "./loader";
 
 interface BaseRecord {
@@ -152,3 +154,5 @@ const bestAttack = PokemonDB.instance.selectBest(({ attack }) => attack);
 
 console.log(`Best defence - ${bestDefensive?.id}`);
 console.log(`Best attack - ${bestAttack?.id}`);
+
+*/
