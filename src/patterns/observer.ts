@@ -1,14 +1,4 @@
-import { RecordHandler, loader } from "./loader";
-
-interface BaseRecord {
-    id: string
-}
-
-interface Pokemon {
-    id: string;
-    attack: number;
-    defense: number;
-}
+/*
 
 // Observer
 interface Database<T extends BaseRecord> {
@@ -109,4 +99,6 @@ PokemonDB.instance.set({
 });
 
 unsubscribe();
-// console.log(PokemonDB.instance.get('Bulbasaur'));
+
+
+*/
