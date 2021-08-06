@@ -1,21 +1,4 @@
-import { RecordHandler, loader } from "./loader";
-
-interface BaseRecord {
-    id: string
-}
-
-interface Database<T extends BaseRecord> {
-    set(newValue: T): void;
-    get(id: string): T | undefined;
-}
-
-interface Pokemon {
-    id: string;
-    attack: number;
-    defense: number;
-}
-
-// Factory pattern
+/*
 function createDatabase<T extends BaseRecord>() {
     class InMemoryDatabase implements Database<T> {
         private db: Record<string, T> = {};
@@ -45,3 +28,4 @@ PokemonDB.instance.set({
 });
 
 console.log(PokemonDB.instance.get('Bulbasaur'));
+*/
