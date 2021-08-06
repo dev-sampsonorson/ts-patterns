@@ -121,6 +121,17 @@ function createDatabase<T extends BaseRecord>() {
 
 const PokemonDB = createDatabase<Pokemon>();
 
+class PokemonDBAdapter implements RecordHandler<Pokemon> {
+    addRecord(record: Pokemon) {
+        PokemonDB.instance.set(record);
+    }
+}
+
+const unsubscribe = PokemonDB.instance.onAfterAdd(({ value }) => {
+    console.log(value);
+});
+loader('./data.json', new PokemonDBAdapter());
+
 
 
 PokemonDB.instance.set({
@@ -129,9 +140,8 @@ PokemonDB.instance.set({
     defense: 50
 });
 
-const unsubscribe = PokemonDB.instance.onAfterAdd(({ value }) => {
-    console.log(value);
-});
+unsubscribe();
+
 
 PokemonDB.instance.set({
     id: 'Spinosaur',
@@ -139,10 +149,7 @@ PokemonDB.instance.set({
     defense: 20
 });
 
-unsubscribe();
-// console.log(PokemonDB.instance.get('Bulbasaur'));
-
-PokemonDB.instance.visit((item) => {
+/* PokemonDB.instance.visit((item) => {
     console.log(item.id);
 });
 
@@ -151,4 +158,4 @@ const bestDefensive = PokemonDB.instance.selectBest(({ defense }) => defense);
 const bestAttack = PokemonDB.instance.selectBest(({ attack }) => attack);
 
 console.log(`Best defence - ${bestDefensive?.id}`);
-console.log(`Best attack - ${bestAttack?.id}`);
+console.log(`Best attack - ${bestAttack?.id}`); */
