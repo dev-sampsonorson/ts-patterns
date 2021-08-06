@@ -1,3 +1,4 @@
+/*
 import { RecordHandler, loader } from "./loader";
 
 interface BaseRecord {
@@ -121,3 +122,4 @@ unsubscribe();
 PokemonDB.instance.visit((item) => {
     console.log(item.id);
 });
+*/
